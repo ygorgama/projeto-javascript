@@ -1,0 +1,201 @@
+@import './variables/variables';
+
+body{
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.header{
+    padding: 2em 3em;
+    background-color: $light;
+    box-shadow: $shadow;
+    border-radius: 35px;
+
+}
+
+.header__container{
+    width: 100%;
+}
+
+.header__box{
+    background-color: $color-quarta;
+    position: relative;
+    left: -60px;
+    border-radius: 0 10px 10px 0;
+    color: $light;
+    padding: 1em 2em;
+    width: 40%;
+}
+
+.btn{
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.header__title{
+    font-size: 22px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.header__description{
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.header__date{
+    text-align: center;
+}
+
+
+.btn__form-sum::before{
+    content: url('../assets/sum-icons.svg');
+    background-image: '../assets/sum-icons.svg';
+    height: 40px;
+    width: 40px;
+}
+
+.btn__form-minus::before{
+    content: url('../assets/minus-icons.svg');
+    background-image: '../assets/sum-icons.svg';
+    height: 40px;
+    width: 40px;
+    position: relative;
+    bottom: 5px;
+}
+
+.btn__form{
+    position: relative;
+    padding: 0.3rem 1.5rem;
+}
+
+.input__form{
+    color: $color-placeholder;
+    font-size: 14px;
+    line-height: 20px;
+    padding: .4rem;
+    border: 1px solid $form-border;
+    border-radius: 10px;
+}
+
+.input__atividade{
+
+    width: 30%;
+    &:placeholder-shown{
+        text-indent: 5rem;
+
+    }
+}
+.input__dias{
+    width: 18%;
+}
+
+.input__horas{
+    width: 7%;
+}
+
+.chose__item{
+    &:not(:last-child){
+        margin-right: 1em;
+    }
+    .chose__item--link{
+        color: $light;
+        padding: .3rem 1rem ;
+        border-radius: 8px 8px 0 0;
+    }
+}
+
+.chose__hour{
+    box-shadow: $shadow;
+    width: 5.4rem;
+    height: 4.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 1.4rem;
+    border-radius: 10px;
+}
+
+.chose__segunda{
+    background-color: $color-segunda;
+}
+
+.chose__terca{
+    background-color: $color-terca;
+}
+
+.chose__quarta{
+    background-color: $color-quarta;
+}
+
+.chose__quinta{
+    background-color: $color-quinta;
+}
+
+.chose__sexta{
+    background-color: $color-sexta;
+}
+
+.chose__sabado{
+    background-color: $color-sabado;
+}
+
+.chose__domingo{
+    background-color: $color-domingo;
+}
+
+.activities{
+    margin-top: 2rem;
+    overflow: scroll;
+}
+
+.box__hour{
+    width: 5.4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 17px;
+    line-height: 20px;
+    color: $color-placeholder;
+}
+
+.box__info{
+    border-radius: 10px;
+    box-shadow: $shadow;
+    width: 40%;
+    font-size: 1.25rem;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.box__btn{
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: $light;
+    background-color: $box-delete;
+    padding: .2em;
+
+}
+
+.box__info--text{
+    padding:1rem 1rem 0 2rem;
+}
+
+
+.activities__segunda{
+    .box__hour{
+        background-color: $color-segunda;
+    }
+    .box__info--text::before{
+        content: '';
+        background-color:$color-segunda ;
+        width: 30px;
+        height: 100%;
+    }
+}

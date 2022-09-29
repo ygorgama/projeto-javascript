@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panejamento Semanal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div
+        class="container-fluid d-flex justify-content-between header__container"
+      >
+        <div class="header__box">
+          <h1 class="header__title">Planejamento Semanal</h1>
+          <p class="header__description">
+            Utilize o formulário para adicionar novas tarefas
+          </p>
+        </div>
+        <div class="header__btns">
+          <button class="header__btns--btn btn btn-success" id="btnSaveLocal">
+            Salvar localStorage
+          </button>
+          <button
+            class="header__btns--btn btn btn-danger ms-3"
+            id="btnRemoveLocal"
+          >
+            Excluir localStorage
+          </button>
+        </div>
+        <div class="header__date">
+          <h2 class="header__hour" id="horaHeader">10:58</h2>
+          <p class="header__date-full" id="fullTimeHeader">
+            27 de Setembro de 2022
+          </p>
+        </div>
+      </div>
+    </header>
+    <main class="main mt-4">
+      <section class="add-remove">
+        <form action="" class="form">
+          <div class="container">
+            <input
+              type="text"
+              name="atividade"
+              id="atividade"
+              placeholder="Atividade"
+              class="me-3 input__form input__atividade"
+            />
+            <select name="dia" id="dias" class="me-3 input__form input__dias">
+              <option value="domingo">Domingo</option>
+              <option value="segunda">Segunda-feira</option>
+              <option value="terca">Terça-feira</option>
+              <option value="quarta">Quarta-feira</option>
+              <option value="quinta">Quinta-feira</option>
+              <option value="sexta">Sexta-feira</option>
+              <option value="sabado">Sabado</option>
+            </select>
+            <select
+              name="hora"
+              id="horas"
+              class="me-3 input__form input__horas"
+            >
+              <option value="8:30">8:30</option>
+              <option value="9:00">9:00</option>
+              <option value="9:30">9:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+            </select>
+            <button
+              id="addButton"
+              class="me-3 btn btn-success btn-lg btn__form btn__form-sum"
+            >
+              Adicionar Atividade
+            </button>
+            <button
+              id="removeAllMonth"
+              class="me-3 btn btn-danger btn-lg btn__form btn__form-minus"
+            >
+              Excluir Todos
+            </button>
+          </div>
+        </form>
+      </section>
+      <section class="chose mt-4">
+        <div class="container d-flex align-items-center">
+          <div class="chose__hour">
+            <p>Horário</p>
+          </div>
+          <nav class="navbar">
+            <div class="container-fluid">
+              <ul class="navbar-nav flex-row chose__list">
+                <li class="chose__item nav-item">
+                  <a href="" class="chose__item--link chose__segunda nav-link">
+                    Segunda-Feira
+                  </a>
+                </li>
+                <li class="chose__item nav-item">
+                  <a href="" class="chose__terca chose__item--link nav-link">
+                    Terça-feira
+                  </a>
+                </li>
+                <li class="chose__item nav-item">
+                  <a href="" class="chose__quarta chose__item--link nav-link">
+                    Quarta-Feira
+                  </a>
+                </li>
+                <li class="chose__item nav-item">
+                  <a href="" class="chose__quinta chose__item--link nav-link">
+                    Quinta-Feira
+                  </a>
+                </li>
+                <li class="chose__item nav-item">
+                  <a href="" class="chose__sexta chose__item--link nav-link">
+                    Sexta-Feria
+                  </a>
+                </li>
+                <li class="chose__item nav-item">
+                  <a href="" class="chose__sabado chose__item--link nav-link">
+                    Sábado
+                  </a>
+                </li>
+                <li class="chose__item nav-item">
+                  <a href="" class="chose__domingo chose__item--link nav-link">
+                    Domingo
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <section class="activities">
+        <div class="container align-items-center" id="containerAtividades">
+          <div class="activitities__container d-flex mt-4">
+            <article class="activities__box d-flex activities__segunda">
+              <div class="box__hour">
+                <p class="box__date--text">10h30m</p>
+              </div>
+              <div class="box__info">
+                <p class="box__info--text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem
+                  ipsum dolor sit amet, consectetur adipiscing elit
+                </p>
+                <button class="box__btn btn">Apagar</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>
