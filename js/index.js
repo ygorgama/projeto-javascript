@@ -1,97 +1,59 @@
-const date = new Date();
+import { createHtml } from "./htmlHandle.js";
+import { dateHandler } from "./dateHandler.js";
 
-const options = {
-    year: 'numeric', month: 'long', day: 'numeric'
+dateHandler();
+createHtml();
+
+function cardShow() {
+  const buttonsShow = document.getElementsByClassName("chose__btn");
+  for (let i = 0; i < buttonsShow.length; i++) {
+    const element = buttonsShow[i];
+    element.addEventListener("click", (event) => {
+      for (let i = 0; i < buttonsShow.length; i++) {
+        buttonsShow[i].classList.remove("fixed");
+      }
+
+      element.classList.add("fixed");
+      const buttonValue = element.value;
+      console.log(buttonValue);
+    });
+  }
 }
 
-const horaAtual = date.getHours();
-const minutoAtual = date.getMinutes();
+cardShow();
 
-const dataAtual = date.toLocaleDateString('pt-br', options);
+const localStorageDate = [];
 
-const fullTime = document.getElementById('fullTimeHeader');
-fullTime.innerHTML = dataAtual;
-
-const hoursMinutes = document.getElementById('horaHeader');
-hoursMinutes.innerHTML = horaAtual + ":" + minutoAtual;
-
-function createCard(atividade, dias, horas) {
-    const containerAtividades = document.getElementById('containerAtividades');
-    const element = document.createElement("article");
-    element.classList.add('activities__box', 'd-flex')
-
-    if(dias === 'segunda'){
-        element.classList.add('activities__segunda')
-    }         
-    else if(atividade.dia === 'terca'){
-        element.classList.add('activities__terca')
-
-    }
-    else if(dias === 'quarta'){
-        element.classList.add('activities__quarta')
-
-    }
-    else if(dias === 'quinta'){
-        element.classList.add('activities__quinta')
-
-    }
-    else if(dias === 'sexta'){
-        element.classList.add('activities__sexta')
-
-    }
-    else if(dias === 'sabado'){
-        element.classList.add('activities__sabado')
-
-    }
-    else if(dias=== 'domingo'){
-        element.classList.add('activities__domingo')       
-    }
-
-    const elementChildFirst = document.createElement('div')
-    elementChildFirst.classList.add('box__hour');
-
-    const fisrtChildElement = document.createElement('p')
-    fisrtChildElement.innerHTML = horas
-    elementChildFirst.appendChild(fisrtChildElement)
-
-    element.appendChild(elementChildFirst)
-
-    const elementChildSecond = document.createElement('div')
-    elementChildSecond.classList.add('box__info');
-
-    const secondElemenFirstChild = document.createElement('p')
-    secondElemenFirstChild.innerHTML = atividade
-    secondElemenFirstChild.classList.add('box__info--text')
-    const secondElemenSecondChild = document.createElement('button')
-    secondElemenSecondChild.innerHTML = "Apagar"
-    secondElemenSecondChild.classList.add('box__btn',  'btn')
-    secondElemenSecondChild.id = "deletarItem";
-
-    elementChildSecond.appendChild(secondElemenFirstChild);
-    elementChildSecond.appendChild(secondElemenSecondChild);
-
-    element.appendChild(elementChildSecond)
-    
-    containerAtividades.appendChild(element)
-
-
-}
+const localStorageHandler = (atividade, dias, horas) => {
+  const objetos = {
+    atividade: atividade,
+    dia: dias,
+    hora: horas,
+  };
+  localStorageDate.push(objetos);
+  localStorage.setItem("dados", JSON.stringify(localStorageDate));
+};
 
 function submitHandler(event) {
-    event.preventDefault();    
-    let atividade = document.getElementById('atividade');
-    let dias = document.getElementById('dias');
-    let horas = document.getElementById('horas');
-    
-    createCard(atividade.value, dias.value, horas.value)
+  event.preventDefault();
+  let atividade = document.getElementById("atividade");
+  let dias = document.getElementById("dias");
+  let horas = document.getElementById("horas");
 
-    console.log(atividade.value);
-    console.log(dias.value);
-    console.log(horas.value);
+  //   const createdElement = createCard(atividade.value, dias.value, horas.value);
 
-    atividade = '';
-    
+  //   console.log(createdElement);
+  console.log(atividade.value);
+  console.log(dias.value);
+  console.log(horas.value);
+
+  localStorageHandler(atividade.value, dias.value, horas.value);
+
+  atividade = "";
+  if (localStorage.length) {
+    console.log(JSON.parse(localStorage.getItem("dados")));
+  }
 }
 
-let addButton = document.getElementById('addButton');
-addButton.addEventListener('click', submitHandler)
+let addButton = document.getElementById("addButton");
+addButton.addEventListener("click", submitHandler);

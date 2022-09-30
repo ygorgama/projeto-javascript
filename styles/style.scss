@@ -24,7 +24,8 @@ body{
     border-radius: 0 10px 10px 0;
     color: $light;
     padding: 1em 2em;
-    width: 40%;
+    width: 35%;
+    height: 20%;
 }
 
 .btn{
@@ -94,15 +95,15 @@ body{
     width: 7%;
 }
 
-.chose__item{
+.chose__btn{
     &:not(:last-child){
         margin-right: 1em;
     }
-    .chose__item--link{
-        color: $light;
-        padding: .3rem 1rem ;
-        border-radius: 8px 8px 0 0;
-    }
+
+    color: $light;
+    padding: .3rem 1rem ;
+    border-radius: 8px 8px 0 0;
+    
 }
 
 .chose__hour{
@@ -147,8 +148,15 @@ body{
 
 .activities{
     margin-top: 2rem;
-    overflow: scroll;
+    width: 100vw;
+    .container{
+        width: 100vw;
+        overflow: hidden;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
 }
+
 
 .box__hour{
     width: 5.4rem;
@@ -162,10 +170,14 @@ body{
     color: $color-placeholder;
 }
 
+.activities__box{
+    height: 100px;
+}
+
 .box__info{
     border-radius: 10px;
     box-shadow: $shadow;
-    width: 40%;
+    width: 100%;
     font-size: 1.25rem;
     margin-left: 20px;
     display: flex;
