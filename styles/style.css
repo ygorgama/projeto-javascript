@@ -9,6 +9,26 @@ body {
   border-radius: 35px;
 }
 
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #8f54a0 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8f54a0;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
+
 .header__container {
   width: 100%;
 }
@@ -172,7 +192,7 @@ body {
 .box__info {
   border-radius: 10px;
   box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-  width: 100%;
+  width: 40%;
   font-size: 1.25rem;
   margin-left: 20px;
   display: flex;
