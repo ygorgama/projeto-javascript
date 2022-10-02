@@ -1,6 +1,11 @@
 import { createHtml } from "./htmlHandle.js";
 import { dateHandler } from "./dateHandler.js";
 
+function clearLocalStorage() {
+  localStorage.clear();
+}
+let removeLocalStorageBtn = document.getElementById("btnRemoveLocal");
+
 function cardShow() {
   const buttonsShow = document.getElementsByClassName("chose__btn");
   for (let i = 0; i < buttonsShow.length; i++) {
@@ -9,16 +14,14 @@ function cardShow() {
       for (let i = 0; i < buttonsShow.length; i++) {
         buttonsShow[i].classList.remove("fixed");
       }
-
       element.classList.add("fixed");
       const buttonValue = element.value;
       localStorage.setItem("buttonValue", buttonValue);
-      createHtml();
     });
   }
 }
 cardShow();
-
+createHtml();
 dateHandler();
 
 let localStorageDate = [];
@@ -28,6 +31,7 @@ const localStorageHandler = (atividade, dias, horas) => {
     atividade: atividade,
     dia: dias,
     hora: horas,
+    id: `${horas}_${dias}`,
   };
 
   const dados = JSON.parse(localStorage.getItem("dados"));
@@ -51,14 +55,11 @@ function submitHandler(event) {
   //   const createdElement = createCard(atividade.value, dias.value, horas.value);
 
   //   console.log(createdElement);
-  console.log(atividade.value);
-  console.log(dias.value);
-  console.log(horas.value);
-
   localStorageHandler(atividade.value, dias.value, horas.value);
 
-  atividade = "";
+  atividade.value = "";
 }
 
 let addButton = document.getElementById("addButton");
 addButton.addEventListener("click", submitHandler);
+removeLocalStorageBtn.addEventListener('click', clearLocalStorage)
