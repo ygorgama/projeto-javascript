@@ -1,5 +1,6 @@
 import { createHtml } from "./htmlHandle.js";
 import { dateHandler } from "./dateHandler.js";
+import { removeItemId, removeAllItemDay } from "./removeFunctions.js";
 
 function clearLocalStorage() {
   localStorage.clear();
@@ -11,6 +12,7 @@ function cardShow() {
   for (let i = 0; i < buttonsShow.length; i++) {
     const element = buttonsShow[i];
     element.addEventListener("click", (event) => {
+      location.reload();
       for (let i = 0; i < buttonsShow.length; i++) {
         buttonsShow[i].classList.remove("fixed");
       }
@@ -26,15 +28,24 @@ dateHandler();
 
 let localStorageDate = [];
 
+const dados = JSON.parse(localStorage.getItem("dados"));
+
 const localStorageHandler = (atividade, dias, horas) => {
+  let newId = 0;
+  if (dados != null) {
+    for (const iterator of dados) {
+      if (iterator.id === newId) {
+        newId++;
+      }
+    }
+  }
+
   const objetos = {
     atividade: atividade,
     dia: dias,
     hora: horas,
-    id: `${horas}_${dias}`,
+    id: newId,
   };
-
-  const dados = JSON.parse(localStorage.getItem("dados"));
 
   if (dados != null) {
     localStorageDate = dados;
@@ -52,14 +63,34 @@ function submitHandler(event) {
   let dias = document.getElementById("dias");
   let horas = document.getElementById("horas");
 
+  if (atividade.value === "" || atividade.value === null) {
+    alert("Coloque valores válidos");
+    return;
+  }
+
   //   const createdElement = createCard(atividade.value, dias.value, horas.value);
 
   //   console.log(createdElement);
   localStorageHandler(atividade.value, dias.value, horas.value);
 
   atividade.value = "";
+  location.reload();
+}
+
+let buttonValue = localStorage.getItem("buttonValue");
+console.log(buttonValue);
+
+let buttonRemove = document.getElementsByClassName("btn__" + buttonValue);
+for (let i = 0; i < buttonRemove.length; i++) {
+  const element = buttonRemove[i];
+  const elementValue = element.value;
+  element.addEventListener("click", removeItemId);
 }
 
 let addButton = document.getElementById("addButton");
 addButton.addEventListener("click", submitHandler);
-removeLocalStorageBtn.addEventListener('click', clearLocalStorage)
+removeLocalStorageBtn.addEventListener("click", clearLocalStorage);
+
+let removeAllMonthELements = document.getElementById("removeAllMonth");
+
+removeAllMonthELements.addEventListener("click", removeAllItemDay);

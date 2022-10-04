@@ -12,71 +12,72 @@ export const createHtml = () => {
     return buttonValue === obj.dia;
   });
 
-  let horaAtual;
+  let horaAntiga = [];
 
   dadosDia.forEach((dados) => {
     if (dados.dia === buttonValue) {
       let isCardExist = false;
-      if (horaAtual != null && horaAtual === dados.hora) {
-        isCardExist = true;
+      if (horaAntiga.length !== 0) {
+        for (const hora of horaAntiga) {
+          if (hora === dados.hora) {
+            isCardExist = true;
+            break;
+          }
+        }
       }
-  
-      horaAtual = dados.hora;
-  
+
+      horaAntiga.push(dados.hora);
+
       const cardHour = document.createElement("div");
       cardHour.classList.add("box__hour");
-  
+
       const cardHourText = document.createElement("p");
       cardHour.classList.add("box__date--text");
       cardHourText.innerHTML = dados.hora;
-  
+
       cardHour.appendChild(cardHourText);
-  
+
       const containerCard = document.createElement("article");
-  
+
       containerCard.classList.add(
         "activities__box",
         "d-flex",
-        "activities__" + buttonValue
+        "activities__" + buttonValue,
+        "mt-3"
       );
-  
-      // for (const iterator of dados) {
-      //   for (const dad in object) {
-      //     if (Object.hasOwnProperty.call(object, dad)) {
-      //       const element = object[dad];
-      //       object;
-      //     }
-      //   }
-      // }
-  
+
+      const boxInfo = document.createElement("div");
+      boxInfo.classList.add("box__info");
+
+      const boxInfoText = document.createElement("p");
+      boxInfoText.classList.add("box__info--text");
+      boxInfoText.innerText = dados.atividade;
+
+      const boxInfoTextButton = document.createElement("button");
+      boxInfoTextButton.innerHTML = "Apagar";
+      boxInfoTextButton.classList.add("box__btn", "btn", "btn__" + buttonValue);
+      boxInfoTextButton.value = dados.id;
+
+      boxInfo.appendChild(boxInfoText);
+      boxInfo.appendChild(boxInfoTextButton);
+
       if (isCardExist === false) {
         containerCard.append(cardHour);
         containerAtividades.appendChild(containerCard);
-  
+
         console.log("Colocado o card");
+        containerCard.appendChild(boxInfo);
+        containerCard.id = buttonValue + "_" + dados.hora;
       } else {
+        let card = document.getElementById(buttonValue + "_" + dados.hora);
+        card.appendChild(boxInfo);
         console.log("Não colocado card");
         isCardExist = false;
+        card.classList.remove("activities__" + buttonValue);
+        card.classList.add("activities__conflito");
       }
-  
+
       console.log(dados);
     }
   });
-
-  // for (const iterator of dados) {
-  //   for (const index of dados) {
-  //     if (iterator.dia === buttonValue && iterator.hora !== index.hora) {
-  //       containerAtividade.appendChild(containerCards);
-  //       console.log(containerCards);
-  //     } else {
-  //       console.log("Opa existe essa hora nesse dia");
-  //     }
-  //   }
-  // }
-
-  // for (const iterator of dados) {
-  //   if (iterator.dia === buttonValue) {
-  //     containerCards.id = buttonValue + "_" + iterator.hora;
-  //   }
-  // }
 };

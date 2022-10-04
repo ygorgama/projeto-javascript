@@ -73,29 +73,42 @@
               class="me-3 input__form input__atividade"
             />
             <select name="dia" id="dias" class="me-3 input__form input__dias">
-              <option value="domingo">Domingo</option>
               <option value="segunda">Segunda-feira</option>
               <option value="terca">Terça-feira</option>
               <option value="quarta">Quarta-feira</option>
               <option value="quinta">Quinta-feira</option>
               <option value="sexta">Sexta-feira</option>
               <option value="sabado">Sabado</option>
+              <option value="domingo">Domingo</option>
             </select>
             <select
               name="hora"
               id="horas"
               class="me-3 input__form input__horas"
             >
-              <option value="8:30">8:30</option>
-              <option value="9:00">9:00</option>
+              <option value="8:30">8h30m</option>
+              <option value="9:00">9h00</option>
               <option value="9:30">9:30</option>
-              <option value="10:00">10:00</option>
-              <option value="10:30">10:30</option>
-              <option value="11:30">11:30</option>
-              <option value="12:00">12:00</option>
-              <option value="12:30">12:30</option>
-              <option value="13:00">13:00</option>
-              <option value="13:30">13:30</option>
+              <option value="10:00">10h00m</option>
+              <option value="10:30">10h30m</option>
+              <option value="11:30">11h30m</option>
+              <option value="12:00">12h00m</option>
+              <option value="12:30">12h30m</option>
+              <option value="13:00">13h00m</option>
+              <option value="13:30">13h30m</option>
+              <option value="8:30">14h00m</option>
+              <option value="9:00">14h30m</option>
+              <option value="9:30">15h00m</option>
+              <option value="10:00">15h30m</option>
+              <option value="10:30">16h00m</option>
+              <option value="11:30">16h30m</option>
+              <option value="12:00">17h00m</option>
+              <option value="12:30">17h30m</option>
+              <option value="13:00">18h00m</option>
+              <option value="13:30">18h30m</option>
+              <option value="13:30">19h00m</option>
+              <option value="13:30">19h30m</option>
+              <option value="13:30">20h30m</option>
             </select>
             <button
               id="addButton"
@@ -104,6 +117,7 @@
               Adicionar Atividade
             </button>
             <button
+              type="button"
               id="removeAllMonth"
               class="me-3 btn btn-danger btn-lg btn__form btn__form-minus"
             >
@@ -117,7 +131,7 @@
           <div class="chose__hour">
             <p>Horário</p>
           </div>
-          <div class="chose__btns">
+          <div class="chose__btns ms-5 d-flex">
             <button
               class="btn chose__segunda chose__btn"
               value="segunda"
@@ -133,7 +147,7 @@
               Terça-feira
             </button>
             <button
-              class="fixed btn chose__quarta chose__btn"
+              class="btn chose__quarta chose__btn"
               value="quarta"
               id="quartaButton"
             >
@@ -171,7 +185,10 @@
         </div>
       </section>
       <section class="activities">
-        <div class="container align-items-center" id="containerAtividades">
+        <div
+          class="container__activities align-items-center"
+          id="containerAtividades"
+        >
           <!-- <article class="activities__box d-flex activities__segunda">
             <div class="box__hour">
               <p class="box__date--text">10h30m</p>
