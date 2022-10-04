@@ -4,6 +4,7 @@ import { removeItemId, removeAllItemDay } from "./removeFunctions.js";
 
 function clearLocalStorage() {
   localStorage.clear();
+  location.reload();
 }
 let removeLocalStorageBtn = document.getElementById("btnRemoveLocal");
 

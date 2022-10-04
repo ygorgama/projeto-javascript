@@ -41,9 +41,7 @@ export const createHtml = () => {
 
       containerCard.classList.add(
         "activities__box",
-        "d-flex",
-        "activities__" + buttonValue,
-        "mt-3"
+        "activities__" + buttonValue
       );
 
       const boxInfo = document.createElement("div");

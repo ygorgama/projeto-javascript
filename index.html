@@ -34,7 +34,7 @@
   <body>
     <header class="header">
       <div
-        class="container-fluid d-flex justify-content-between header__container"
+        class="container-fluid d-flex justify-content-between header__container align-items-center"
       >
         <div class="header__box">
           <h1 class="header__title">Planejamento Semanal</h1>
@@ -64,7 +64,7 @@
     <main class="main mt-4">
       <section class="add-remove">
         <form action="" class="form">
-          <div class="container">
+          <div class="container__main">
             <input
               type="text"
               name="atividade"
@@ -96,19 +96,20 @@
               <option value="12:30">12h30m</option>
               <option value="13:00">13h00m</option>
               <option value="13:30">13h30m</option>
-              <option value="8:30">14h00m</option>
-              <option value="9:00">14h30m</option>
-              <option value="9:30">15h00m</option>
-              <option value="10:00">15h30m</option>
-              <option value="10:30">16h00m</option>
-              <option value="11:30">16h30m</option>
-              <option value="12:00">17h00m</option>
-              <option value="12:30">17h30m</option>
-              <option value="13:00">18h00m</option>
-              <option value="13:30">18h30m</option>
-              <option value="13:30">19h00m</option>
-              <option value="13:30">19h30m</option>
-              <option value="13:30">20h30m</option>
+              <option value="14h00m">14h00m</option>
+              <option value="14h30m">14h30m</option>
+              <option value="15h00m">15h00m</option>
+              <option value="15h30m">15h30m</option>
+              <option value="16h00m">16h00m</option>
+              <option value="16h30m">16h30m</option>
+              <option value="17h00m">17h00m</option>
+              <option value="17h30m">17h30m</option>
+              <option value="18h00m">18h00m</option>
+              <option value="18h30m">18h30m</option>
+              <option value="19h00m">19h00m</option>
+              <option value="19h30m">19h30m</option>
+              <option value="20h00m">20h00m</option>
+              <option value="20h30m">20h30m</option>
             </select>
             <button
               id="addButton"
@@ -127,7 +128,7 @@
         </form>
       </section>
       <section class="chose mt-4">
-        <div class="container d-flex align-items-center">
+        <div class="container__main d-flex align-items-center">
           <div class="chose__hour">
             <p>Horário</p>
           </div>
@@ -186,7 +187,7 @@
       </section>
       <section class="activities">
         <div
-          class="container__activities align-items-center"
+          class="container__main container__activities align-items-center"
           id="containerAtividades"
         >
           <!-- <article class="activities__box d-flex activities__segunda">
